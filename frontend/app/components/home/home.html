@@ -3,30 +3,167 @@
   <article class="col-xs-12">
     <!-- SEARCH FORM -->
 
+    <!--
     <form>
-
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Type in the name of a test suite...">
         <span class="input-group-btn">
           <button class="btn btn-default disabled" type="button"><i class="fa fa-times"></i></button>
         </span>
       </div>
-
-
     </form>
-
-    <br/><br/>
+    -->
   </article>
 </section>
 <!-- SUITES TABLE -->
 <section class="row">
   <article class="col-xs-12">
-    <table class="table table-striped">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <div class="btn-group">
+          <button class="btn btn-sm btn-primary">
+            1-Week
+          </button>
+          <button class="btn btn-sm btn-primary active">
+            2-Week
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    <table class="table table-striped table-bordered">
       <!-- TABLE HEADERS -->
       <thead>
       <tr>
         <th>Suite Name</th>
-        <th></th>
+
+        <th class="text-center">
+          Fri<br/>
+          <small>
+            10/30/15<br/>
+            <span class="text-muted">
+              today
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Thu<br/>
+          <small>
+            10/29/15<br/>
+            <span class="text-muted">
+              yesterday
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Wed<br/>
+          <small>
+            10/28/15<br/>
+            <span class="text-muted">
+              2 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Tue<br/>
+          <small>
+            10/27/15<br/>
+            <span class="text-muted">
+              3 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Mon<br/>
+          <small>
+            10/26/15<br/>
+            <span class="text-muted">
+              4 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Sun<br/>
+          <small>
+            10/25/15<br/>
+            <span class="text-muted">
+              5 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Sat<br/>
+          <small>
+            10/24/15<br/>
+            <span class="text-muted">
+              6 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Fri<br/>
+          <small>
+            10/23/15<br/>
+            <span class="text-muted">
+              7 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Thu<br/>
+          <small>
+            10/22/15<br/>
+            <span class="text-muted">
+              8 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Wed<br/>
+          <small>
+            10/21/15<br/>
+            <span class="text-muted">
+              9 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Tue<br/>
+          <small>
+            10/20/15<br/>
+            <span class="text-muted">
+              10 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Mon<br/>
+          <small>
+            10/19/15<br/>
+            <span class="text-muted">
+              11 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Sun<br/>
+          <small>
+            10/18/15<br/>
+            <span class="text-muted">
+              12 days ago
+            </span>
+          </small>
+        </th>
+        <th class="text-center">
+          Sat<br/>
+          <small>
+            10/17/15<br/>
+            <span class="text-muted">
+              13 days ago
+            </span>
+          </small>
+        </th>
+
       </tr>
       </thead>
       <!-- TABLE BODY -->
@@ -34,13 +171,22 @@
       <!-- ROW REPEATER -->
       <tr *ng-for="#suite of testSuites">
         <td>
-          <button class="btn btn-xs btn-link"><i class="fa fa-plus"></i></button>
-          &nbsp; <strong>{{ suite.suiteName }}</strong>
-          <small class="text-muted">({{ formatTime('Aug-6') }})</small>
-          <i class="fa fa-circle text-danger"></i>
+          <strong>{{ suite.suiteName }}</strong>
         </td>
-        <td class="text-right">
-          <button class="btn btn-xs btn-default"><i class="fa fa-link"></i></button>
+        <td class="build text-center" *ng-for="#build of suite.builds">
+          <span class="text-success">
+            P: {{ build.totalPasses }}<br/>
+          </span>
+          <span class="text-danger">
+            F: {{ build.totalFails }}<br/>
+          </span>
+          S: {{ build.totalSkips }}<br/>
+          <strong>
+            T: {{ build.totalSpecs }}<br/>
+          </strong>
+
+          <!-- {{ build.status }} -->
+          <!-- {{ build.date }} -->
         </td>
       </tr>
 
