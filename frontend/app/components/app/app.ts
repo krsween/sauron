@@ -6,7 +6,7 @@ import {
 // import {HTTP_BINDINGS} from 'http/http';
 
 import {HomeCmp} from '../home/home';
-import {AboutCmp} from '../about/about';
+import {InfoCmp} from '../info/info';
 import {NameList} from '../../services/name_list';
 
 @Component({
@@ -19,6 +19,6 @@ import {NameList} from '../../services/name_list';
 })
 @RouteConfig([
   { path: '/', component: HomeCmp, as: 'Home' },
-  { path: '/about', component: AboutCmp, as: 'About' }
+  { path: '/info/:suiteId', component: InfoCmp, as: 'Info' }
 ])
 export class AppCmp {}
