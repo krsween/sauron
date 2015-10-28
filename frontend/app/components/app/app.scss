@@ -1,11 +1,16 @@
 body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif; }
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
 
 a, .btn-link {
   color: #666;
+
   -webkit-transition: color 250ms;
   -moz-transition: color 250ms;
   -o-transition: color 250ms;
-  transition: color 250ms; }
-  a:hover, .btn-link:hover {
-    color: #333; }
+  transition: color 250ms;
+
+  &:hover {
+    color: #333;
+  }
+}

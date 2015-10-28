@@ -1,8 +1,16 @@
-<section class="sample-app-content">
-  <nav>
-    <a [router-link]="['/Home']">Home</a>
-    <a [router-link]="['/Info', { suiteId: 5 }]">Info</a>
-  </nav>
-
+<section class="container-fluid">
+  <!-- MAIN HEADER -->
+  <div class="row text-center">
+    <article class="col-xs-12">
+      <h1>Sauron</h1>
+      <h5 class="text-muted"><i class="fa fa-eye"></i> all the things</h5>
+      <div class="clearfix">&nbsp;</div>
+    </article>
+  </div>
+  <!-- ROUTER VIEWS -->
   <router-outlet></router-outlet>
+  <!-- FOOTER -->
+  <footer class="row col-xs-12 text-center">
+    <small class="text-muted">Made with <i class="fa fa-heart"></i> by the Bullhorn ATF team.</small>
+  </footer>
 </section>
