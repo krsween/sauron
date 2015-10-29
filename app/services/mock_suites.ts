@@ -22,12 +22,17 @@ export class MockSuites {
   }
 
 
-  get(): Object[] {
-    return this.testSuites;
+  getSuites(): Promise {
+    let suiteData = this.testSuites;
+    return new Promise(function(resolve){
+      setTimeout(() => {
+        resolve(suiteData);
+      }, 00);
+    });
   }
 
 
-  mockBuilds() {
+  mockBuilds(): Object[] {
     var mockBuildData = [];
     for (var i = 0; i < 14; i++) {
       var mockDate = new Date('10-'+(31-i)+'-2015'),
@@ -36,12 +41,12 @@ export class MockSuites {
           date: mockDate,
           status: 'pass',
           totalSpecs: 0,
-          totalPasses: Math.round(Math.random()*10),
-          totalFails: Math.round(Math.random()*10),
+          totalPasses: Math.round(Math.random()*100),
+          totalFails: Math.round(Math.random()),
           totalSkips: Math.round(Math.random()*10),
           url: 'http://www.jenkins.com'
         };
-      mockBuild.totalSpecs = mockBuild.totalPasses + mockBuild.totalFails + mockBuild.totalSkips;
+      mockBuild.totalSpecs = mockBuild.totalPasses + mockBuild.totalFails; // + mockBuild.totalSkips;
       if (mockBuild.totalFails > 0) {
         mockBuild.status = 'fail';
       }
@@ -51,9 +56,5 @@ export class MockSuites {
   }
 
 
-
-
-
-
-
 }
+

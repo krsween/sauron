@@ -8,4 +8,5 @@ a, .btn-link {
   -o-transition: color 250ms;
   transition: color 250ms; }
   a:hover, .btn-link:hover {
-    color: #333; }
+    color: #333;
+    text-decoration: none; }

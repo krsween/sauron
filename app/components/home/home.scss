@@ -1,6 +1,24 @@
 .build {
-  padding: 1em 1em;
-  font-size: .8em;
+
+  a {
+    padding: 1em 0;
+    display: block;
+  }
+
+  &.pass {
+    background-color: rgba(47, 153, 39, 0.1);
+  }
+  &.fail {
+    background-color: rgba(255, 2, 32, 0.1);
+  }
+
+  strong {
+    &.pass {
+      padding-top: .5em;
+      display: inline-block;
+      color: #006600;
+    }
+  }
 }
 
 table {
@@ -8,12 +26,24 @@ table {
 }
 
 td, th {
-  padding: 10px;
   position: relative;
-  outline: 0;
 
+  small {
+    font-size: .8em;
+    margin-top: 1em;
+  }
 
 }
+
+
+
+tr, td, th, th::after {
+  -webkit-transition: background-color 250ms;
+  -moz-transition: background-color 250ms;
+  -o-transition: background-color 250ms;
+  transition: background-color 250ms;
+}
+
 
 body:not(.nohover) tbody tr:hover {
   background-color: rgba(0,0,0,0.025);

@@ -173,21 +173,31 @@
         <td>
           <strong>{{ suite.suiteName }}</strong>
         </td>
-        <td class="build text-center" *ng-for="#build of suite.builds">
-          <span class="text-success">
-            P: {{ build.totalPasses }}<br/>
-          </span>
-          <span class="text-danger">
-            F: {{ build.totalFails }}<br/>
-          </span>
-          S: {{ build.totalSkips }}<br/>
-          <strong>
-            T: {{ build.totalSpecs }}<br/>
-          </strong>
+        <td class="build text-center {{ build.status }}" *ng-for="#build of suite.builds">
+          <a href="#/">
 
-          <!-- {{ build.status }} -->
-          <!-- {{ build.date }} -->
+            <span class="text-success" *ng-if="build.status === 'fail'">
+            {{ build.totalPasses }} |
+          </span>
+
+            <strong class="text-danger" *ng-if="build.status === 'fail'">
+              {{ build.totalFails }}<br>
+            </strong>
+            <!--
+            <span class="text-muted">
+              {{ build.totalSkips }}<br/>
+            </span>
+            -->
+            <strong class="{{ build.status }}">
+              {{ build.totalSpecs }}
+            </strong>
+
+            <!-- {{ build.status }} -->
+            <!-- {{ build.date }} -->
         </td>
+
+
+          </a>
       </tr>
 
       </tbody>
