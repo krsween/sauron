@@ -5,13 +5,15 @@ import {
 } from 'angular2/router';
 // import {HTTP_BINDINGS} from 'http/http';
 
-import {HomeCmp} from '../home/home';
-import {InfoCmp} from '../info/info';
-import {NameList} from '../../services/name_list';
+import { HomeCmp } from '../home/home';
+import { InfoCmp } from '../info/info';
+import { NameList } from '../../services/name_list';
+import { MockSuites } from '../../services/mock_suites';
+
 
 @Component({
   selector: 'app',
-  viewBindings: [NameList],
+  viewBindings: [NameList, MockSuites],
   templateUrl: './components/app/app.html',
   styleUrls: ['./components/app/app.css'],
   encapsulation: ViewEncapsulation.None,
