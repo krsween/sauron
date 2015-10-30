@@ -53,5 +53,8 @@ export class HomeCmp {
     this.columnTotals = columnTotals.getColumns();
   }
 
+  returnDate(dateString) {
+    return new Date(dateString);
+  }
 
 }

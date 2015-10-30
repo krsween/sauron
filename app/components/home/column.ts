@@ -17,7 +17,7 @@ export class SingleColumnTotal {
     this.totalSpecs = newTotals.totalSpecs || (newTotals.totalPasses + newTotals.totalFails);
     this.totalPasses += newTotals.totalPasses || 0;
     this.totalFails += newTotals.totalFails || 0;
-    this.buildFails += newTotals.status === 'fail' ? this.buildFails += 1 : null;
+    this.buildFails = (newTotals.status === 'fail' ? this.buildFails += 1 : this.buildFails += 0);
     this.totalSkips += newTotals.totalSkips || 0;
     this.runs += 1;
   }

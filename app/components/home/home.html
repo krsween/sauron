@@ -30,137 +30,25 @@
         </div>
       </div>
     </div>
+
+    <!--<pre>{{ columnTotals | json }}</pre>-->
+
     <div class="clearfix">&nbsp;</div>
     <table class="table table-striped table-bordered">
       <!-- TABLE HEADERS -->
       <thead>
       <tr>
         <th>Suite Name</th>
-
-        <th class="text-center">
-          Fri<br/>
+        <!-- Repeater for all days returned by DB -->
+        <th *ng-for="#date of columnTotals" class="text-center">
+          {{ returnDate(date.date) | date:'EEE' }}<br/>
           <small>
-            10/30/15<br/>
+            {{ returnDate(date.date) | date:'MMM-d' }}<br/>
+            <!--
             <span class="text-muted">
-              today
+              ...ago
             </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Thu<br/>
-          <small>
-            10/29/15<br/>
-            <span class="text-muted">
-              yesterday
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Wed<br/>
-          <small>
-            10/28/15<br/>
-            <span class="text-muted">
-              2 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Tue<br/>
-          <small>
-            10/27/15<br/>
-            <span class="text-muted">
-              3 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Mon<br/>
-          <small>
-            10/26/15<br/>
-            <span class="text-muted">
-              4 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Sun<br/>
-          <small>
-            10/25/15<br/>
-            <span class="text-muted">
-              5 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Sat<br/>
-          <small>
-            10/24/15<br/>
-            <span class="text-muted">
-              6 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Fri<br/>
-          <small>
-            10/23/15<br/>
-            <span class="text-muted">
-              7 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Thu<br/>
-          <small>
-            10/22/15<br/>
-            <span class="text-muted">
-              8 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Wed<br/>
-          <small>
-            10/21/15<br/>
-            <span class="text-muted">
-              9 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Tue<br/>
-          <small>
-            10/20/15<br/>
-            <span class="text-muted">
-              10 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Mon<br/>
-          <small>
-            10/19/15<br/>
-            <span class="text-muted">
-              11 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Sun<br/>
-          <small>
-            10/18/15<br/>
-            <span class="text-muted">
-              12 days ago
-            </span>
-          </small>
-        </th>
-        <th class="text-center">
-          Sat<br/>
-          <small>
-            10/17/15<br/>
-            <span class="text-muted">
-              13 days ago
-            </span>
+            -->
           </small>
         </th>
 
@@ -176,18 +64,20 @@
         <td class="build text-center {{ build.status }}" *ng-for="#build of suite.builds">
           <a href="#/">
 
-            <span class="text-success" *ng-if="build.status === 'fail'">
-            {{ build.totalPasses }} |
-          </span>
+            <span *ng-if="build.status === 'fail'">
+              <!-- PASSES -->
+              <span class="label label-success text-center">
+                {{ build.totalPasses }}
+              </span> &nbsp;
 
-            <strong class="text-danger" *ng-if="build.status === 'fail'">
-              {{ build.totalFails }}<br>
-            </strong>
-            <!--
-            <span class="text-muted">
-              {{ build.totalSkips }}<br/>
+              <!-- FAILS -->
+              <span class="label label-danger text-center">
+                {{ build.totalFails }}
+              </span>
+
+              <br />
             </span>
-            -->
+
             <strong class="{{ build.status }}">
               {{ build.totalSpecs }}
             </strong>
@@ -197,6 +87,23 @@
           </a>
         </td>
       </tr>
+
+      <tr>
+        <td>
+          <strong>Suite Totals</strong>
+        </td>
+        <!-- Repeater for all days returned by DB -->
+        <td *ng-for="#column of columnTotals" class="text-center">
+          <small>
+            <span>Specs: {{ column.totalSpecs }}</span><br>
+            <span>F: {{ column.totalFails }}</span><br>
+            <span>P: {{ column.totalPasses }}</span><br>
+            <span>Build Fails: {{ column.buildFails }}</span>
+          </small>
+        </td>
+
+      </tr>
+
       </tbody>
     </table>
   </article>

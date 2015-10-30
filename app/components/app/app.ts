@@ -6,7 +6,7 @@ import {
 // import {HTTP_PROVIDERS} from 'http/http';
 
 import { HomeCmp } from '../home/home';
-import { AboutCmp } from '../about/about';
+//import { AboutCmp } from '../about/about';
 import { NameList } from '../../services/name_list';
 import { MockSuites } from '../../services/mock_suites';
 
@@ -19,7 +19,6 @@ import { MockSuites } from '../../services/mock_suites';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/', component: HomeCmp, as: 'Home' },
-  { path: '/about', component: AboutCmp, as: 'About' }
+  { path: '/', component: HomeCmp, as: 'Home' }
 ])
 export class AppCmp {}
