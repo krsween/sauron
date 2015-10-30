@@ -22,12 +22,12 @@ export class MockSuites {
   }
 
 
-  getSuites(): Promise {
+  getSuites(): any {
     let suiteData = this.testSuites;
     return new Promise(function(resolve){
       setTimeout(() => {
         resolve(suiteData);
-      }, 00);
+      }, 0);
     });
   }
 
@@ -57,4 +57,3 @@ export class MockSuites {
 
 
 }
-

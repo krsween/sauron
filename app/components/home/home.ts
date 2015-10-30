@@ -44,7 +44,7 @@ export class HomeCmp {
           totalPasses: build.totalPasses || 0,
           totalFails: build.totalFails || 0,
           status: build.status || 0,
-          totalSkips: build.totalSkips || 0,
+          totalSkips: build.totalSkips || 0
         };
 
         columnTotals.addTotals(build.date.toString(), totalObj);

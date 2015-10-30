@@ -5,7 +5,7 @@ export function main() {
     let suiteList;
 
     beforeEach(() => {
-      suiteList = new MockSuites(10);
+      suiteList = new MockSuites;
     });
 
     it('should return the list of suites', () => {
