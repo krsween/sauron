@@ -3,7 +3,7 @@ import {
   describe,
   expect,
   injectAsync,
-  it
+  it,
 } from 'angular2/testing';
 import {Component, View} from 'angular2/angular2';
 // import {DOM} from 'angular2/src/core/dom/dom_adapter';

@@ -1,11 +1,6 @@
 import { Component, NgFor, NgIf, NgClass } from 'angular2/angular2';
-//import { moment } from 'moment';
-
 import { MockSuites } from '../../services/mock_suites';
-
 import { ColumnContainer, SingleColumnTotal } from './column';
-
-
 
 @Component({
   selector: 'home',
@@ -14,6 +9,7 @@ import { ColumnContainer, SingleColumnTotal } from './column';
   directives: [NgFor, NgIf, NgClass]
 })
 export class HomeCmp {
+
 
   testSuites: Array<Object>;
   public columnTotals: Array<SingleColumnTotal>;
@@ -35,6 +31,7 @@ export class HomeCmp {
       });
   }
 
+
   getDatesAndTotals(suites): void {
     let columnTotals = new ColumnContainer;
     suites.map((suite) => {
@@ -54,7 +51,7 @@ export class HomeCmp {
       });
     });
     this.columnTotals = columnTotals.getColumns();
-
-    console.log(this.columnTotals);
   }
+
+
 }
